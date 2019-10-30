@@ -45,7 +45,7 @@ internal class BindingViewRegistry private constructor(
     container: ViewGroup?
   ): View {
     @Suppress("UNCHECKED_CAST")
-    return (bindings[initialRendering::class] as? ViewBinding<RenderingT>)
+    return getBindingFor(initialRendering::class)
         ?.buildView(
             initialRendering,
             initialContainerHints,
@@ -62,5 +62,12 @@ internal class BindingViewRegistry private constructor(
             "A ${ViewBinding::class.java.name} should have been registered " +
                 "to display $initialRendering."
         )
+  }
+
+  override fun <RenderingT : Any> getBindingFor(
+    renderingType: KClass<out RenderingT>
+  ): ViewBinding<RenderingT>? {
+    @Suppress("UNCHECKED_CAST")
+    return bindings[renderingType] as? ViewBinding<RenderingT>
   }
 }
