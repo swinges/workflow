@@ -45,7 +45,6 @@ buildscript {
           'constraint_layout': "androidx.constraintlayout:constraintlayout:1.1.3",
           'gridlayout': "androidx.gridlayout:gridlayout:1.0.0",
           'lifecycle': [
-              'extensions': "androidx.lifecycle:lifecycle-extensions:2.1.0",
               'reactivestreams': "androidx.lifecycle:lifecycle-reactivestreams-ktx:2.2.0",
           ],
           // Note that we're not using the actual androidx material dep yet, it's still alpha.
